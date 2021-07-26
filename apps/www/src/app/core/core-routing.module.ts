@@ -1,9 +1,14 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Route, RouterModule, Routes } from '@angular/router';
+
+const notFoundRoute: Route = {
+  path: '**',
+  redirectTo: 'not-found',
+};
 
 const routes: Routes = [
   {
-    path: 'home',
+    path: '',
     loadChildren: () =>
       import('@rsrch/home').then((module) => module.HomeModule),
   },
@@ -12,15 +17,22 @@ const routes: Routes = [
     loadChildren: () =>
       import('@rsrch/search').then((module) => module.SearchModule),
   },
-  {
-    path: 'not-found',
-    loadChildren: () =>
-      import('@rsrch/not-found').then((module) => module.NotFoundModule),
-  },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot([
+      ...routes,
+      notFoundRoute,
+      {
+        path: 'queryable-resource',
+        loadChildren: () =>
+          import('@rsrch/queryable-resource').then(
+            (module) => module.QueryableResourceModule
+          ),
+      },
+    ]),
+  ],
   exports: [RouterModule],
 })
 export class CoreRoutingModule {}

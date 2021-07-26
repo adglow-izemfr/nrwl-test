@@ -1,13 +1,12 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
-  selector: 'rsrch-ui-menu',
-  templateUrl: './menu.component.html',
+  templateUrl: './queryable-resource.page.html',
   styles: [
   ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class MenuComponent implements OnInit {
+export class QueryableResourcePage implements OnInit {
 
   constructor() { }
 

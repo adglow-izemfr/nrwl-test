@@ -1,1 +1,4 @@
-<p>header works!</p>
+<mat-toolbar [color]="header.color">
+  <mat-toolbar-row class="header-title"> {{ header.title }} </mat-toolbar-row>
+  <mat-toolbar-row class="header-subtitle"> {{ header.subtitle }} </mat-toolbar-row>
+</mat-toolbar>

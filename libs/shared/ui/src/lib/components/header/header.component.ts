@@ -1,17 +1,12 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { Header } from '../../models/header';
 
 @Component({
   selector: 'rsrch-ui-header',
   templateUrl: './header.component.html',
-  styles: [
-  ],
+  styleUrls: ['./header.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class HeaderComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+export class HeaderComponent {
+  @Input() header: Header = { title: '', subtitle: '', color: '' };
 }

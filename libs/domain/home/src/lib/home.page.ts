@@ -1,4 +1,5 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Header } from '@rsrch/ui';
 
 @Component({
   templateUrl: './home.page.html',
@@ -6,11 +7,14 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
   ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class HomePage implements OnInit {
+export class HomePage {
+
+  header: Header = {
+    title: 'Where do you wanna search into?',
+    subtitle: 'Wherever you choose you will be able to look for any information a its disposal',
+    color: 'primary',
+  }
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }

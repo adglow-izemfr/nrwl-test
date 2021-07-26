@@ -1,13 +1,13 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
-  selector: 'rsrch-ui-message',
-  templateUrl: './message.component.html',
+  selector: 'rsrch-resource-list',
+  templateUrl: './resource-list.component.html',
   styles: [
   ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class MessageComponent implements OnInit {
+export class ResourceListComponent implements OnInit {
 
   constructor() { }
 

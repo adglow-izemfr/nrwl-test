@@ -104,7 +104,10 @@
             "tsConfig": "apps/www/tsconfig.app.json",
             "aot": true,
             "assets": ["apps/www/src/favicon.ico", "apps/www/src/assets"],
-            "styles": ["./node_modules/@angular/material/prebuilt-themes/indigo-pink.css", "apps/www/src/styles.css"],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "apps/www/src/styles.css"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -528,6 +531,46 @@
           "options": {
             "jestConfig": "libs/domain/search-box/jest.config.js",
             "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "domain-queryable-resource": {
+      "projectType": "library",
+      "root": "libs/domain/queryable-resource",
+      "sourceRoot": "libs/domain/queryable-resource/src",
+      "prefix": "rsrch",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:ng-packagr-lite",
+          "options": {
+            "project": "libs/domain/queryable-resource/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/domain/queryable-resource/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/domain/queryable-resource/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/domain/queryable-resource"],
+          "options": {
+            "jestConfig": "libs/domain/queryable-resource/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/domain/queryable-resource/src/**/*.ts",
+              "libs/domain/queryable-resource/src/**/*.html"
+            ]
           }
         }
       }

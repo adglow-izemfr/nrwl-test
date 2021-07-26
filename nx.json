@@ -52,6 +52,9 @@
     },
     "domain-search-box": {
       "tags": ["domain", "widget"]
+    },
+    "domain-queryable-resource": {
+      "tags": ["domain", "page"]
     }
   }
 }

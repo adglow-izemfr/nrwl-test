@@ -1,1 +1,13 @@
-<p>card works!</p>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      <a *ngIf="card.link" [routerLink]="[card.link]" > {{ card.title }} </a>
+      <a *ngIf="card.href" [href]="[card.href]"> {{ card.title }} </a>
+      <span *ngIf="!card.link && !card.href"> {{ card.title }} </span>
+    </mat-card-title>
+  </mat-card-header>
+  <img mat-card-image *ngIf="card.imagePath" [src]="card.imagePath">
+  <mat-card-content>
+    <p *ngIf="!!card.description"> {{ card.description }} </p>
+  </mat-card-content>
+</mat-card>

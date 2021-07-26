@@ -10,5 +10,6 @@ module.exports = {
     '<rootDir>/libs/domain/search',
     '<rootDir>/libs/domain/not-found',
     '<rootDir>/libs/domain/search-box',
+    '<rootDir>/libs/domain/queryable-resource',
   ],
 };
