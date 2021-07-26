@@ -1,0 +1,57 @@
+{
+  "implicitDependencies": {
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
+    ".eslintrc.json": "*"
+  },
+  "affected": {
+    "defaultBase": "main"
+  },
+  "npmScope": "rsrch",
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/workspace/tasks-runners/default",
+      "options": {
+        "cacheableOperations": ["build", "lint", "test", "e2e"]
+      }
+    }
+  },
+  "projects": {
+    "www": {
+      "tags": []
+    },
+    "www-e2e": {
+      "tags": [],
+      "implicitDependencies": ["www"]
+    },
+    "shared-global": {
+      "tags": ["shared", "core"]
+    },
+    "shared-data": {
+      "tags": ["shared", "core"]
+    },
+    "shared-ui": {
+      "tags": ["shared", "ui"]
+    },
+    "shared-form": {
+      "tags": ["shared", "ui"]
+    },
+    "shared-layout": {
+      "tags": ["shared", "ui"]
+    },
+    "domain-home": {
+      "tags": ["domain", "page"]
+    },
+    "domain-search": {
+      "tags": ["domain", "page"]
+    },
+    "domain-not-found": {
+      "tags": ["domain", "page"]
+    },
+    "domain-search-box": {
+      "tags": ["domain", "widget"]
+    }
+  }
+}
