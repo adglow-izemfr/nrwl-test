@@ -14,11 +14,11 @@ export class ResultListComponent {
 
   constructor() { }
 
-  getCardFrom(result: Result): Card {
+  getCardFrom(result?: Result): Card {
     return {
 
-      title: result.title,
-      description: result.description,
+      title: result?.title || 'Result title',
+      description: result?.description || 'Result description',
     }
   }
 
