@@ -4,7 +4,7 @@ import { Card } from '../../models/card';
 @Component({
   selector: 'rsrch-ui-card',
   templateUrl: './card.template.html',
-  styles: [],
+  styleUrls: ['./card.template.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CardTemplate {

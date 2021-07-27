@@ -1,3 +1,7 @@
 <main>
   <rsrch-ui-header [header]="header"></rsrch-ui-header>
+  <rsrch-queryable-resource-list
+    *ngIf="queryableResources$ | async as queryableResources"
+    [queryableResources]="queryableResources">
+  </rsrch-queryable-resource-list>
 </main>

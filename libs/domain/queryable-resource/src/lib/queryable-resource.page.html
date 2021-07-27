@@ -1,1 +1,5 @@
-<p>queryable-resource works!</p>
+<main>
+  <rsrch-ui-header *ngIf="header$ | async as header" [header]="header"></rsrch-ui-header>
+  <rsrch-form-control *ngIf="queryableResourceResources$ | async as queryableResourceResources"></rsrch-form-control>
+  <rsrch-result-list></rsrch-result-list>
+</main>

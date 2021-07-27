@@ -1,12 +1,20 @@
-<mat-card>
+<mat-card class="standard-card">
   <mat-card-header>
-    <mat-card-title>
-      <a *ngIf="card.link" [routerLink]="[card.link]" > {{ card.title }} </a>
-      <a *ngIf="card.href" [href]="[card.href]"> {{ card.title }} </a>
-      <span *ngIf="!card.link && !card.href"> {{ card.title }} </span>
+    <mat-card-title *ngIf="!!card.title">
+      <a *ngIf="!card.imagePath && card.link" [routerLink]="[card.link]" > {{ card.title }} </a>
+      <a *ngIf="!card.imagePath && card.href" [href]="[card.href]"> {{ card.title }} </a>
+      <span *ngIf="card.title"> {{ card.title }} </span>
     </mat-card-title>
   </mat-card-header>
-  <img mat-card-image *ngIf="card.imagePath" [src]="card.imagePath">
+  <ng-container *ngIf="!!card.imagePath">
+    <a *ngIf="card.link" [routerLink]="[card.link]">
+      <img mat-card-image [src]="card.imagePath">
+    </a>
+    <a *ngIf="card.href" [href]="[card.href]">
+      <img mat-card-image [src]="card.imagePath">
+    </a>
+    <img mat-card-image *ngIf="!card.href && !card.link" [src]="card.imagePath">
+  </ng-container>
   <mat-card-content>
     <p *ngIf="!!card.description"> {{ card.description }} </p>
   </mat-card-content>

@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterModule } from '@angular/router';
@@ -15,7 +16,7 @@ import { PanelTemplate } from './templates/panel/panel.template';
 import { SectionTemplate } from './templates/section/section.template';
 
 @NgModule({
-  imports: [CommonModule, MatCardModule, MatToolbarModule, RouterModule],
+  imports: [CommonModule, MatButtonModule, MatCardModule, MatToolbarModule, RouterModule],
   declarations: [
     HeaderComponent,
     NotificationComponent,

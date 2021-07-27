@@ -13,9 +13,9 @@ export class QueryableResourceList {
 
   getCardFrom(queryableResource: QueryableResource): Card {
     return {
-      title: queryableResource.name,
       description: queryableResource.description,
-      // TODO add link
+      link: `/queryable-resource/${queryableResource.id}`,
+      imagePath: queryableResource.imagePath,
     }
   }
 }

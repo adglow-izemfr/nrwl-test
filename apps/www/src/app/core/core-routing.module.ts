@@ -13,6 +13,13 @@ const routes: Routes = [
       import('@rsrch/home').then((module) => module.HomeModule),
   },
   {
+    path: 'queryable-resource',
+    loadChildren: () =>
+      import('@rsrch/queryable-resource').then(
+        (module) => module.QueryableResourceModule
+      ),
+  },
+  {
     path: 'search',
     loadChildren: () =>
       import('@rsrch/search').then((module) => module.SearchModule),
@@ -24,13 +31,6 @@ const routes: Routes = [
     RouterModule.forRoot([
       ...routes,
       notFoundRoute,
-      {
-        path: 'queryable-resource',
-        loadChildren: () =>
-          import('@rsrch/queryable-resource').then(
-            (module) => module.QueryableResourceModule
-          ),
-      },
     ]),
   ],
   exports: [RouterModule],
