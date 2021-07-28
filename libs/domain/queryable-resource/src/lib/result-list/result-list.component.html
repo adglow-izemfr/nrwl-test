@@ -1,4 +1,4 @@
-<section class="margin-top-20" fxLayout="row wrap" fxLayoutAlign="space-between center">
-  <!-- TODO pass the list of results from the user's query to the resource -->
-  <rsrch-ui-card *ngFor="let in of results" [card]="getCardFrom()"></rsrch-ui-card>
+<section class="margin-top-20" fxLayout="row wrap" fxLayoutAlign="space-around center">
+  <rsrch-ui-spinner-http></rsrch-ui-spinner-http>
+  <rsrch-ui-card *ngFor="let result of results" [card]="getCardFrom(result)"></rsrch-ui-card>
 </section>

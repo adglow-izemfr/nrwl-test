@@ -1,4 +1,5 @@
 <mat-toolbar [color]="header.color">
-  <mat-toolbar-row class="header-title"> {{ header.title }} </mat-toolbar-row>
-  <mat-toolbar-row class="header-subtitle"> {{ header.subtitle }} </mat-toolbar-row>
+  <mat-toolbar-row *ngIf="!!header.title" class="header-title"> {{ header.title }} </mat-toolbar-row>
+  <mat-toolbar-row *ngIf="!!header.imagePath"><img mat-card-image class="header-image" [src]="header.imagePath"></mat-toolbar-row>
+  <mat-toolbar-row *ngIf="!!header.subtitle" class="header-subtitle"> {{ header.subtitle }} </mat-toolbar-row>
 </mat-toolbar>

@@ -6,7 +6,7 @@
       "description": "Look for your favorite public repos",
       "imagePath": "https://upload.wikimedia.org/wikipedia/commons/5/54/GitHub_Logo.png",
       "resource": {
-        "queryUrl": "https://api.github.com/search/repositories"
+        "queryUrl": "https://api.github.com/search/repositories?q="
       }
     },
     {
@@ -15,7 +15,7 @@
       "description": "Look for useful packages for your projects",
       "imagePath": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Npm-logo.svg/1280px-Npm-logo.svg.png",
       "resource": {
-        "queryUrl": "https://registry.npmjs.org/-/v1/search"
+        "queryUrl": "https://registry.npmjs.org/-/v1/search?text="
       }
     },
     {
@@ -24,7 +24,8 @@
       "description": "Find the answer to your programming related questions",
       "imagePath": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Stack_Overflow_logo.svg/1280px-Stack_Overflow_logo.svg.png",
       "resource": {
-        "queryUrl": "https://api.stackexchange.com/2.2/questions"
+        "queryUrlOld": "https://api.stackexchange.com/2.2/questions?site=stackoverflow&tagged=",
+        "queryUrl": "https://api.stackexchange.com/2.3/search/advanced?site=stackoverflow&answers=1&q="
       }
     }
   ]

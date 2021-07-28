@@ -1,5 +1,6 @@
 export interface Header {
-  title: string;
+  title?: string;
+  imagePath?: string;
   subtitle: string;
   color: string;
 }

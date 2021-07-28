@@ -5,7 +5,8 @@ import { BehaviorSubject, forkJoin, Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { QueryableResource } from './models/queryable-resource';
 import { Resource } from './models/resource';
-import { QueryableResourceService } from './queryable-resource.service';
+import { Result } from './models/result';
+import { QueryableResourceService, resourceIds } from './queryable-resource.service';
 
 @Component({
   templateUrl: './queryable-resource.page.html',
@@ -21,9 +22,14 @@ export class QueryableResourcePage implements OnInit {
     subtitle: 'loading...'
   };
 
-  public header$ = new BehaviorSubject<Header>(this.header);
+  private resourceId!: resourceIds;
+  private requestUrl!: string;
 
-  public queryableResourceResources$!: Observable< {
+  results$: Observable<Result[]> = this.queryableResourceSrv.results$;
+
+  header$ = new BehaviorSubject<Header>(this.header);
+
+  queryableResourceResources$!: Observable< {
     queryableResource: QueryableResource;
     resource: Resource;
   }>;
@@ -41,12 +47,21 @@ export class QueryableResourcePage implements OnInit {
       queryableResource: queryableResource$,
       resource: resources$ as Observable<Resource>,
     }).pipe(
-      tap((result) => this.header$.next({
+      tap((result) => {
+        this.requestUrl = result.resource.queryUrl;
+        this.resourceId = result.queryableResource.id as resourceIds;
+        this.header$.next({
         ...this.header,
-        title: result.queryableResource.name,
-        subtitle: result.queryableResource.description,
-      }))
+        title: undefined,
+        imagePath: result.queryableResource.imagePath || '',
+        subtitle: result.queryableResource.description || '',
+      });
+    })
     )
+  }
+
+  requestData(query: {search: string}) {
+    this.queryableResourceSrv.getQueryResults(this.resourceId, this.requestUrl, query.search);
   }
 
 }

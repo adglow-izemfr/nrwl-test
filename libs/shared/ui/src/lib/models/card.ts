@@ -4,4 +4,5 @@ export interface Card {
   link?: string;
   href?: string;
   imagePath?: string;
+  avatarImagePath?: string;
 }

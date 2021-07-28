@@ -1,0 +1,15 @@
+<mat-form-field>
+  <mat-label>
+    {{label}} <span *ngIf="hasError()">*</span>
+  </mat-label>
+  <mat-select [formControlName]="formControlName"
+              [id]="formControlName"
+              (selectionChange)="onSelect($event)">
+    <mat-option *ngFor="let option of options" [value]="option">
+      {{option}}
+    </mat-option>
+  </mat-select>
+  <mat-error *ngIf="hasErrorToShow()">
+    <em> {{ getErrorMessage() }} </em>
+  </mat-error>
+</mat-form-field>

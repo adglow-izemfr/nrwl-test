@@ -1,5 +1,5 @@
 <main>
   <rsrch-ui-header *ngIf="header$ | async as header" [header]="header"></rsrch-ui-header>
-  <rsrch-form-control *ngIf="queryableResourceResources$ | async as queryableResourceResources"></rsrch-form-control>
-  <rsrch-result-list></rsrch-result-list>
+  <rsrch-request-information *ngIf="queryableResourceResources$ | async as queryableResourceResources" [requestInfoOptions]="queryableResourceResources" (send)="requestData($event)"></rsrch-request-information>
+  <rsrch-result-list *ngIf="results$ | async as results" [results]="results"></rsrch-result-list>
 </main>

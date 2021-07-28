@@ -1,0 +1,18 @@
+<div>
+  <mat-form-field class="font-size-1">
+    <mat-label>
+      {{label}} <span *ngIf="hasError()">*</span>
+    </mat-label>
+    <input  matInput
+            [name]="formControlName"
+            [type]="type"
+            [id]="formControlName"
+            [placeholder]="placeholder"
+            [value]="value"
+            (input)="onInput($event)"
+            autocomplete="off" />
+    <mat-error *ngIf="hasErrorToShow()">
+      <em> {{ getErrorMessage() }} </em>
+    </mat-error>
+  </mat-form-field>
+</div>

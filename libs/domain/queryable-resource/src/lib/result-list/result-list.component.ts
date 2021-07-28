@@ -10,15 +10,17 @@ import { Result } from '../models/result';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ResultListComponent {
-  @Input() results: Result[] = new Array(20);
+  @Input() results: Result[] = [];
 
   constructor() { }
 
-  getCardFrom(result?: Result): Card {
+  getCardFrom(result: Result): Card {
     return {
 
-      title: result?.title || 'Result title',
-      description: result?.description || 'Result description',
+      title: result.title,
+      description: result.description,
+      avatarImagePath: result.avatarImagePath,
+      href: result.link
     }
   }
 
