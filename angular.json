@@ -424,43 +424,6 @@
         }
       }
     },
-    "domain-search": {
-      "projectType": "library",
-      "root": "libs/domain/search",
-      "sourceRoot": "libs/domain/search/src",
-      "prefix": "rsrch",
-      "architect": {
-        "build": {
-          "builder": "@nrwl/angular:ng-packagr-lite",
-          "options": {
-            "tsConfig": "libs/domain/search/tsconfig.lib.json",
-            "project": "libs/domain/search/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "libs/domain/search/tsconfig.lib.prod.json"
-            }
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/domain/search/src/**/*.ts",
-              "libs/domain/search/src/**/*.html"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/domain/search"],
-          "options": {
-            "jestConfig": "libs/domain/search/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
     "domain-not-found": {
       "projectType": "library",
       "root": "libs/domain/not-found",
@@ -493,43 +456,6 @@
           "outputs": ["coverage/libs/domain/not-found"],
           "options": {
             "jestConfig": "libs/domain/not-found/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
-    "domain-search-box": {
-      "projectType": "library",
-      "root": "libs/domain/search-box",
-      "sourceRoot": "libs/domain/search-box/src",
-      "prefix": "rsrch",
-      "architect": {
-        "build": {
-          "builder": "@nrwl/angular:ng-packagr-lite",
-          "options": {
-            "tsConfig": "libs/domain/search-box/tsconfig.lib.json",
-            "project": "libs/domain/search-box/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "libs/domain/search-box/tsconfig.lib.prod.json"
-            }
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/domain/search-box/src/**/*.ts",
-              "libs/domain/search-box/src/**/*.html"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/domain/search-box"],
-          "options": {
-            "jestConfig": "libs/domain/search-box/jest.config.js",
             "passWithNoTests": true
           }
         }

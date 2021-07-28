@@ -7,9 +7,7 @@ module.exports = {
     '<rootDir>/libs/shared/form',
     '<rootDir>/libs/shared/layout',
     '<rootDir>/libs/domain/home',
-    '<rootDir>/libs/domain/search',
     '<rootDir>/libs/domain/not-found',
-    '<rootDir>/libs/domain/search-box',
     '<rootDir>/libs/domain/queryable-resource',
   ],
 };

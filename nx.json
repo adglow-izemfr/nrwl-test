@@ -44,14 +44,8 @@
     "domain-home": {
       "tags": ["domain", "page"]
     },
-    "domain-search": {
-      "tags": ["domain", "page"]
-    },
     "domain-not-found": {
       "tags": ["domain", "page"]
-    },
-    "domain-search-box": {
-      "tags": ["domain", "widget"]
     },
     "domain-queryable-resource": {
       "tags": ["domain", "page"]

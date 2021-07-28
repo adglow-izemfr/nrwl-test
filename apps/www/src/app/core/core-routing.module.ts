@@ -19,11 +19,6 @@ const routes: Routes = [
         (module) => module.QueryableResourceModule
       ),
   },
-  {
-    path: 'search',
-    loadChildren: () =>
-      import('@rsrch/search').then((module) => module.SearchModule),
-  },
 ];
 
 @NgModule({
