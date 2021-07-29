@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { FlexModule } from '@angular/flex-layout';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterModule } from '@angular/router';
@@ -13,19 +13,19 @@ import { ResultListComponent } from './result-list/result-list.component';
 @NgModule({
   imports: [
     CommonModule,
-    FlexModule,
+    FlexLayoutModule,
     FormModule,
     MatToolbarModule,
     ReactiveFormsModule,
     RouterModule.forChild([
-      {path: ':id', pathMatch: 'full', component: QueryableResourcePage}
+      { path: ':id', pathMatch: 'full', component: QueryableResourcePage },
     ]),
-    UiModule
+    UiModule,
   ],
   declarations: [
     QueryableResourcePage,
     ResultListComponent,
-    RequestInformationComponent
+    RequestInformationComponent,
   ],
 })
 export class QueryableResourceModule {}

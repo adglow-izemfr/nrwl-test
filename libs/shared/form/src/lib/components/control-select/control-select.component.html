@@ -1,8 +1,8 @@
-<mat-form-field>
+<mat-form-field class="font-size-1">
   <mat-label>
     {{label}} <span *ngIf="hasError()">*</span>
   </mat-label>
-  <mat-select [formControlName]="formControlName"
+  <mat-select [formControl]="selectFormControl"
               [id]="formControlName"
               (selectionChange)="onSelect($event)">
     <mat-option *ngFor="let option of options" [value]="option">

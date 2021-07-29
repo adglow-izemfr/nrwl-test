@@ -1,4 +1,4 @@
-<mat-toolbar color="accent">
+<mat-toolbar color="accent" class="nav-bar-medium">
   <form [formGroup]="form" autocomplete="off" fxLayout="row" fxLayoutAlign="start center">
     <ng-container *ngFor="let formElement of formElementsInfo">
       <ng-container [ngSwitch]="formElement.type">
@@ -6,13 +6,15 @@
                                   class="margin-right-10"
                                   [form]="form"
                                   [formControlName]="formElement.name"
-                                  [label]="formElement.name | titlecase">
+                                  [label]="formElement.label"
+                                  [type]="formElement.inputType ?? 'text'">
         </rsrch-form-control-input>
         <rsrch-form-control-select *ngSwitchCase="'select'"
                                   class="margin-right-10"
                                   [form]="form"
                                   [formControlName]="formElement.name"
-                                  [label]="formElement.name | titlecase">
+                                  [label]="formElement.label"
+                                  [options]="formElement.options ?? []">
         </rsrch-form-control-select>
       </ng-container>
     </ng-container>

@@ -23,6 +23,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   font-size: 2rem;
 }
 
+.hidden {
+  visibility: hidden;
+}
+
 .margin-bottom-10 {
   margin-bottom: 10px;
 }
@@ -33,6 +37,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .margin-top-20 {
   margin-top: 20px;
+}
+
+.nav-bar-medium {
+  height: 75px;
 }
 
 .white-space-pre-line {

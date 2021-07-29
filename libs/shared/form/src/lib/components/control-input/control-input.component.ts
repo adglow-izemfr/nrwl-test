@@ -1,20 +1,28 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { ChangeDetectionStrategy, Component, forwardRef, Input } from '@angular/core';
-import { ControlValueAccessor, FormGroup, NG_VALUE_ACCESSOR } from '@angular/forms';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  forwardRef,
+  Input,
+} from '@angular/core';
+import {
+  ControlValueAccessor,
+  FormGroup,
+  NG_VALUE_ACCESSOR,
+} from '@angular/forms';
 
 @Component({
   selector: 'rsrch-form-control-input',
   templateUrl: './control-input.component.html',
-  styles: [
-  ],
+  styles: [],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
       useExisting: forwardRef(() => ControlInputComponent),
       multi: true,
-    }
-  ]
+    },
+  ],
 })
 export class ControlInputComponent implements ControlValueAccessor {
   @Input() form!: FormGroup;
@@ -23,13 +31,13 @@ export class ControlInputComponent implements ControlValueAccessor {
   @Input() placeholder = '';
   @Input() type = 'text';
 
-  value: unknown;
+  value!: string;
   private emitChange: any;
   private emitTouch: any;
 
   constructor() {}
 
-  writeValue(formValue: any): void {
+  writeValue(formValue: string): void {
     this.value = formValue;
   }
   registerOnChange(formOnChangeCallback: any): void {
@@ -40,7 +48,7 @@ export class ControlInputComponent implements ControlValueAccessor {
   }
 
   onInput(event: any) {
-    this.value = event.target.value;
+    this.value = event.target.value as string;
     this.emitChange(this.value);
     this.emitTouch();
   }

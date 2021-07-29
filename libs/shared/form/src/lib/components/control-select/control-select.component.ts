@@ -1,34 +1,52 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { ChangeDetectionStrategy, Component, forwardRef, Input } from '@angular/core';
-import { ControlValueAccessor, FormGroup, NG_VALUE_ACCESSOR } from '@angular/forms';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  forwardRef,
+  Input,
+  OnInit,
+} from '@angular/core';
+import {
+  ControlValueAccessor,
+  FormControl,
+  FormGroup,
+  NG_VALUE_ACCESSOR,
+} from '@angular/forms';
 
 @Component({
   selector: 'rsrch-form-control-select',
   templateUrl: './control-select.component.html',
-  styles: [
-  ],
+  styles: [],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
       useExisting: forwardRef(() => ControlSelectComponent),
       multi: true,
-    }
-  ]
+    },
+  ],
 })
-export class ControlSelectComponent implements ControlValueAccessor {
+export class ControlSelectComponent implements ControlValueAccessor, OnInit {
   @Input() form!: FormGroup;
   @Input() formControlName = '';
   @Input() label = '';
   @Input() options: string[] = [];
 
-  value: unknown;
+  value!: string;
+  selectFormControl!: FormControl;
   private emitChange: any;
   private emitTouch: any;
 
-  constructor() {}
+  constructor(private cdr: ChangeDetectorRef) {}
 
-  writeValue(formValue: any): void {
+  ngOnInit(): void {
+    this.selectFormControl = this.form.controls[
+      this.formControlName
+    ] as FormControl;
+  }
+
+  writeValue(formValue: string): void {
     this.value = formValue;
   }
   registerOnChange(formOnChangeCallback: any): void {
@@ -39,7 +57,8 @@ export class ControlSelectComponent implements ControlValueAccessor {
   }
 
   onSelect(event: any) {
-    this.value = event.target.value;
+    console.log('Selection: ', event.value);
+    this.value = event.value as string;
     this.emitChange(this.value);
     this.emitTouch();
   }
@@ -58,5 +77,4 @@ export class ControlSelectComponent implements ControlValueAccessor {
     const control = this.form.controls[this.formControlName];
     return JSON.stringify(control.errors);
   }
-
 }

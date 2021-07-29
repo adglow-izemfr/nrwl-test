@@ -10,9 +10,11 @@ export class RequestInformationForms {
       resourceId: 'github',
       formGroup: [
         {
-          name: 'search',
+          name: 'q',
+          label: 'Search',
           formControl: ['', [Validators.required]],
           type: 'input',
+          inputType: 'text'
         },
       ],
     },
@@ -20,9 +22,11 @@ export class RequestInformationForms {
       resourceId: 'npmjs',
       formGroup: [
         {
-          name: 'search',
+          name: 'q',
+          label: 'Search',
           formControl: ['', [Validators.required]],
           type: 'input',
+          inputType: 'text'
         },
       ],
     },
@@ -30,9 +34,43 @@ export class RequestInformationForms {
       resourceId: 'stackoverflow',
       formGroup: [
         {
-          name: 'search',
+          name: 'q',
+          label: 'Search',
           formControl: ['', [Validators.required]],
           type: 'input',
+          inputType: 'text'
+        },{
+          name: 'fromDate',
+          label: 'From',
+          formControl: ['', []],
+          type: 'input',
+          inputType: 'date'
+        },{
+          name: 'toDate',
+          label: 'To',
+          formControl: ['', []],
+          type: 'input',
+          inputType: 'date'
+        },{
+          name: 'order',
+          label: 'Order',
+          formControl: ['asc', [Validators.required]],
+          type: 'select',
+          options: [
+            'asc',
+            'desc'
+          ]
+        },{
+          name: 'sort',
+          label: 'Sort',
+          formControl: ['relevance', [Validators.required]],
+          type: 'select',
+          options: [
+            'activity',
+            'creation',
+            'relevance',
+            'votes'
+          ]
         },
       ],
     },
@@ -50,9 +88,12 @@ export class RequestInformationForms {
 export type formTypes = 'input' | 'select';
 export type requestInformationForms = {
   name: string;
+  label: string;
   type: formTypes;
   formControl: (
     | string
     | ((control: AbstractControl) => ValidationErrors | null)[]
   )[];
+  inputType?: string;
+  options?: string[]
 };

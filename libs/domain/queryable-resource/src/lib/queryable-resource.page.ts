@@ -6,20 +6,21 @@ import { tap } from 'rxjs/operators';
 import { QueryableResource } from './models/queryable-resource';
 import { Resource } from './models/resource';
 import { Result } from './models/result';
-import { QueryableResourceService, resourceIds } from './queryable-resource.service';
+import {
+  QueryableResourceService,
+  resourceIds,
+} from './queryable-resource.service';
 
 @Component({
   templateUrl: './queryable-resource.page.html',
-  styles: [
-  ],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styles: [],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class QueryableResourcePage implements OnInit {
-
   private header: Header = {
     color: 'primary',
     title: 'Queryable Resource',
-    subtitle: 'loading...'
+    subtitle: 'loading...',
   };
 
   private resourceId!: resourceIds;
@@ -29,19 +30,26 @@ export class QueryableResourcePage implements OnInit {
 
   header$ = new BehaviorSubject<Header>(this.header);
 
-  queryableResourceResources$!: Observable< {
+  queryableResourceResources$!: Observable<{
     queryableResource: QueryableResource;
     resource: Resource;
   }>;
 
-  constructor(private route: ActivatedRoute, private queryableResourceSrv: QueryableResourceService) {}
+  constructor(
+    private route: ActivatedRoute,
+    private queryableResourceSrv: QueryableResourceService
+  ) {}
 
   ngOnInit(): void {
     const queryableResourceId = this.route.snapshot.params.id;
     this.header$.next({ ...this.header, title: queryableResourceId });
 
-    const queryableResource$ = this.queryableResourceSrv.getQueryableResourceById$(queryableResourceId);
-    const resources$ = this.queryableResourceSrv.getResourcesByQueryableResourceId$(queryableResourceId);
+    const queryableResource$ = this.queryableResourceSrv.getQueryableResourceById$(
+      queryableResourceId
+    );
+    const resources$ = this.queryableResourceSrv.getResourcesByQueryableResourceId$(
+      queryableResourceId
+    );
 
     this.queryableResourceResources$ = forkJoin({
       queryableResource: queryableResource$,
@@ -51,17 +59,20 @@ export class QueryableResourcePage implements OnInit {
         this.requestUrl = result.resource.queryUrl;
         this.resourceId = result.queryableResource.id as resourceIds;
         this.header$.next({
-        ...this.header,
-        title: undefined,
-        imagePath: result.queryableResource.imagePath || '',
-        subtitle: result.queryableResource.description || '',
-      });
-    })
-    )
+          ...this.header,
+          title: undefined,
+          imagePath: result.queryableResource.imagePath || '',
+          subtitle: result.queryableResource.description || '',
+        });
+      })
+    );
   }
 
-  requestData(query: {search: string}) {
-    this.queryableResourceSrv.getQueryResults(this.resourceId, this.requestUrl, query.search);
+  requestData(searchParams: { [key: string]: string }) {
+    this.queryableResourceSrv.getQueryResults(
+      this.resourceId,
+      this.requestUrl,
+      searchParams
+    );
   }
-
 }

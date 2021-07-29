@@ -6,16 +6,10 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterModule } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
-import { NotificationComponent } from './components/notification/notification.component';
 import { SpinnerHttpComponent } from './components/spinner-http/spinner-http.component';
 import { TrackDirective } from './directives/track.directive';
 import { TruncatePipe } from './pipes/truncate.pipe';
-import { BoxTemplate } from './templates/box/box.template';
 import { CardTemplate } from './templates/card/card.template';
-import { ModalTemplate } from './templates/modal/modal.template';
-import { PageTemplate } from './templates/page/page.template';
-import { PanelTemplate } from './templates/panel/panel.template';
-import { SectionTemplate } from './templates/section/section.template';
 
 @NgModule({
   imports: [
@@ -28,26 +22,14 @@ import { SectionTemplate } from './templates/section/section.template';
   ],
   declarations: [
     HeaderComponent,
-    NotificationComponent,
-    BoxTemplate,
     CardTemplate,
-    ModalTemplate,
-    PageTemplate,
-    PanelTemplate,
-    SectionTemplate,
     TrackDirective,
     TruncatePipe,
     SpinnerHttpComponent,
   ],
   exports: [
     HeaderComponent,
-    NotificationComponent,
-    BoxTemplate,
     CardTemplate,
-    ModalTemplate,
-    PageTemplate,
-    PanelTemplate,
-    SectionTemplate,
     TrackDirective,
     TruncatePipe,
     SpinnerHttpComponent,
